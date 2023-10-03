@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Update Employee</title>
+</head>
+
+<body>
+	
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <h5 class="pt-1">Ticket Tracker Application</h5>
+        </a>
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <!-- Container wrapper -->
+	</nav>
+	<!-- Navbar -->
+
+	<div class="container">
+	
+		<br>
+		<h5>Edit Ticket</h5>
+		<hr>
+		
+		<form action="#" th:action="@{/ticket/save}"
+						 th:object="${ticket}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{title}"
+					class="form-control mb-4 col-4" placeholder="Enter ticket title">
+
+			<input type="text" th:field="*{description}"
+					class="form-control mb-4 col-4" placeholder="Enter ticket description">
+
+			<textarea id="editor" th:field="*{content}"
+					class="form-control mb-4 col-4" placeholder="Enter more about the ticket..."></textarea>
+				
+			<button type="submit" class="btn btn-info col-2">Submit</button>
+			
+			<a th:href="@{/ticket/list}" class="btn btn-info col-2">Cancel</a>
+						
+		</form>
+		<hr>		
+	</div>
+	
+<!-- Footer -->
+<footer class="bg-primary text-center text-white fixed-bottom">
+    
+</footer>
+<!-- Footer -->	
+</body>
+</html>
